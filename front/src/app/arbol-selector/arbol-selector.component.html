@@ -1,0 +1,31 @@
+<!-- arbol-selector.component.html -->
+<div>
+  <mat-card>
+    <mat-card-content>
+      <div class="container">
+        <mat-form-field appearance="fill">
+          <mat-label>Selecciona un árbol</mat-label>
+          <mat-select [(ngModel)]="arbol" (ngModelChange)="obtenerDatoArbol()">
+            <mat-option>Seleccionar</mat-option>
+            <mat-option *ngFor="let arbolItem of arboles" [value]="arbolItem">
+              {{ arbolItem.nombre_arbol }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-card-actions align="start">
+          <button mat-button [disabled]="!arbol" (click)="agregarComentario()">Comentar</button>
+        </mat-card-actions>
+      </div>
+      <!-- Mostrar detalles del árbol seleccionado -->
+      <div *ngIf="rutaImagen">
+        <img mat-card-image [src]="rutaImagen">
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+
+
+
+
